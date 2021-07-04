@@ -5,11 +5,12 @@
 }
 
 .flexbox-item{
-    width: 500px;
-    height: 300px;
+    width: 400px;
+    height: 250px;
     margin: 10px;
     border:rgb(46, 44, 41) 3px solid;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    flex-grow: 0.5;
 }
