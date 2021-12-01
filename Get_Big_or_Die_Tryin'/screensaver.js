@@ -1,12 +1,14 @@
 var blob = [];
 var gameOn = 0;
 let time;
+let img;
 
 function setup() {
   time = 0
-  createCanvas(1200, 800);
+  img = loadImage('Esla-VM-1024.jpg');
+  createCanvas(1024, 576);
   for (let i = 0; i < 10; i++) {
-    blob[i] = new Blob(random(0, width), random(0, height), random(10, 70), random(0, 255), random(0, 255), random(0, 255), 100, random(0, 360))
+    blob[i] = new Blob(random(0, 400), random(0, 400), random(10, 70), random(0, 255), random(0, 255), random(0, 255), 100, random(0, 360))
   }
   eater = new Eater(width / 2, height / 2, 21, 0, 0, 0, 250, 0)
   
@@ -109,8 +111,8 @@ function introScreen() {
   textSize(25)
   textAlign(CENTER);
   fill(0, 0, 0)
-  text("Eat the small blobs. Do not get eaten by the larges ones", width / 2, height / 2 - 50)
-  text("Change direction with the arrow keys", width / 2, height / 2)
+  text("Eat the small blobs, and don't get eaten", width / 2, height / 2 - 50)
+  text("Change angle with arrow keys", width / 2, height / 2)
   text("Press any key to begin", width / 2, height / 2 + 50)
   if (keyIsPressed === true) {
     gameOn = 1
@@ -136,7 +138,8 @@ function createNewBlob(){
 }
 
 function draw() {
-  background(240)
+  //background(250,226,200)
+  image(img,0,0);
   if (gameOn == 1) {
     eater.move()
     for (let i = 0; i < blob.length; i++) {
